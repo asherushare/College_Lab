@@ -25,7 +25,7 @@ int prefixEvaluation(string s)
         break;
 
       case '-':
-        st.push(op2 - op1);
+        st.push(op1 - op2); // Corrected order of subtraction
         break;
 
       case '*':
@@ -33,7 +33,7 @@ int prefixEvaluation(string s)
         break;
 
       case '/':
-        st.push(op2 / op1);
+        st.push(op1 / op2);
         break;
 
       case '^':
@@ -47,7 +47,7 @@ int prefixEvaluation(string s)
 
 int main()
 {
-  cout << prefixEvaluation("- + 7 * 4 5 + 20");
+  cout << prefixEvaluation("- + 7 + * 4 5 20");
 
   return 0;
 }

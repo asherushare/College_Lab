@@ -1,12 +1,14 @@
-#include <bits\stdc++.h>
-using namespaces std;
+#include <bits/stdc++.h>
+using namespace std;
 
-class Bank {
-  public:
+class Bank
+{
+public:
   int bal;
   int roi;
 
-  Bank(int Bal, int Roi) {
+  Bank(int Bal, int Roi)
+  {
     bal = Bal;
     roi = Roi;
   }
@@ -16,71 +18,83 @@ class Bank {
     cout << bal << endl;
   }
 
-  void Deposite() {
+  void Deposite()
+  {
     int amount;
-    cout << "Enter the amount do you want to deposite: ";
+    cout << "Enter the amount you want to deposit: ";
     cin >> amount;
 
     bal = bal + amount;
     cout << "Current balance is: " << bal << endl;
   }
 
-  void withdraw() {
-    int withdraw:
+  void withdraw()
+  {
+    int withdraw;
     cout << "How much money do you want to withdraw: ";
     cin >> withdraw;
 
-    if(bal < withdraw) {
+    if (bal < withdraw)
+    {
       cout << "Insufficient balance.";
     }
-    else {
+    else
+    {
       bal = bal - withdraw;
-      cout << "currenct balance is: " << bal << endl;
+      cout << "current balance is: " << bal << endl;
     }
   }
 
-  void comInte() {
+  void comInte()
+  {
     int n;
     cout << "Enter the number of years to calculate compound interest: ";
     cin >> n;
 
-    float CI = pow (1+roi/100, n) - bal;
-    cout << "Compund interest of " << n << "years is: " << CI << endl;
-  };
+    float CI = bal * pow(1 + roi / 100.0, n) - bal;
+    cout << "Compound interest of " << n << " years is: " << CI << endl;
+  }
 
-  void menu() {
-    int choice:
-    cout << "Enter your choice: ";
+  void menu()
+  {
+    int choice;
 
-    switch (ch)
+    while (true)
     {
-    case 1:
-      cout << "To deposite money: ";
-      bankSys.deposite();
-      break;
+      cout << "Choices are: " << endl;
+      cout << "1. To deposit money." << endl;
+      cout << "2. To withdraw money." << endl;
+      cout << "3. To Calculate compound Interest" << endl;
+      cout << "4. Exit" << endl;
 
-    case 2:
-      cout << "to withdraw money.";
-      bankSys.withdraw();
-      break;
+      cout << "Enter your choice: ";
+      cin >> choice;
 
-    case 3: 
-      cout << "To Calculate compound Interest";
-      bankSys.comInte();
-      break;
-  
-    default:
-      break;
+      switch (choice)
+      {
+      case 1:
+        Deposite();
+        break;
+
+      case 2:
+        withdraw();
+        break;
+
+      case 3:
+        comInte();
+        break;
+
+      case 4:
+        return; // Exit the function (and the loop)
+      }
     }
   }
 
-  ~ Bank();
+  ~Bank() {}
+};
 
-}
-
-
-int main() {
-
+int main()
+{
   int startingBal;
   int RateofI;
 
@@ -92,7 +106,6 @@ int main() {
   Bank bankSys(startingBal, RateofI);
 
   bankSys.menu();
-
 
   return 0;
 }
